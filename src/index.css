@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-display antialiased text-[#181410] bg-background-light dark:bg-background-dark dark:text-white;
+  }
+}

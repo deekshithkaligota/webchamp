@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>LocalGrowth Agency - Professional Digital Solutions for Local Businesses</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Smooth scroll padding for fixed header */
+    section {
+      scroll-margin-top: 80px;
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ff8929",
+            "background-light": "#f8f7f5",
+            "background-dark": "#23180f",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+
+      <!-- Sticky Navigation Header -->
+      <header id="navbar"
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7e0da] dark:border-b-white/10 px-4 sm:px-10 py-3 sticky top-0 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm z-50 transition-all duration-300 shadow-sm">
+        <div class="flex items-center gap-4 text-[#181410] dark:text-white">
+          <div class="size-6 text-primary">
+            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+                fill="currentColor"></path>
+              <path clip-rule="evenodd"
+                d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
+                fill="currentColor" fill-rule="evenodd"></path>
+            </svg>
+          </div>
+          <h2 class="text-[#181410] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">LocalGrowth
+            Agency</h2>
+        </div>
+        <div class="hidden sm:flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-9">
+            <a class="nav-link text-[#181410] dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+              href="#home">Home</a>
+            <a class="nav-link text-[#181410] dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+              href="#services">Services</a>
+            <a class="nav-link text-[#181410] dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+              href="#case-studies">Case Studies</a>
+            <a class="nav-link text-[#181410] dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors"
+              href="#contact">Contact</a>
+          </div>
+          <button onclick="window.location.href='#contact'"
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-black text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+            <span class="truncate">Get a Free Quote</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <!-- Hero Section - Redesigned -->
+        <section id="home"
+          class="relative overflow-hidden bg-gradient-to-br from-background-light to-[#ffe4cc] dark:from-background-dark dark:to-[#3a2c1e] py-20 sm:py-32">
+          <div class="absolute inset-0 opacity-10 dark:opacity-5"
+            style="background-image: radial-gradient(#ff8929 1px, transparent 1px); background-size: 32px 32px;"></div>
+          <div class="relative max-w-4xl mx-auto px-4 text-center flex flex-col gap-8 items-center">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-bold">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Helping Indian Businesses Go Digital
+            </div>
+            <h1
+              class="text-[#181410] dark:text-white text-5xl sm:text-6xl md:text-7xl font-black leading-tight tracking-[-0.033em]">
+              Grow Your Local Business with a <span class="text-primary">Professional Website</span>
+            </h1>
+            <p class="text-[#181410]/80 dark:text-white/80 text-lg sm:text-xl font-normal leading-relaxed max-w-2xl">
+              We build custom, high-performing websites designed to attract more customers and build lasting credibility
+              in your local market. No templates, just results.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+              <button onclick="window.location.href='#contact'"
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-black text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-transform hover:scale-105 shadow-lg shadow-primary/20">
+                Schedule Free Call
+              </button>
+              <button onclick="window.location.href='#case-studies'"
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white dark:bg-white/10 text-[#181410] dark:text-white border border-[#e7e0da] dark:border-white/10 text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-50 dark:hover:bg-white/20 transition-colors">
+                View Our Work
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-8 pt-8 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+              <!-- Trust indicators/logos could go here -->
+              <div class="text-sm font-medium text-[#8d735e] dark:text-white/60">Trusted by 50+ Local Businesses</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Problem/Solution Section -->
+        <section
+          class="flex flex-col gap-10 px-4 py-12 sm:py-16 @container bg-white dark:bg-[#181410] rounded-lg mx-4 shadow-sm border border-[#e7e0da] dark:border-white/5">
+          <div class="flex flex-col gap-4 text-center items-center">
+            <h2
+              class="text-[#181410] dark:text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+              Is Your Online Presence Holding You Back?
+            </h2>
+            <p class="text-[#181410] dark:text-white/80 text-base font-normal leading-normal max-w-[720px]">
+              Many local businesses struggle with an outdated or non-existent website, losing customers to competitors.
+              We bridge that gap.
+            </p>
+          </div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-0 max-w-6xl mx-auto w-full">
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-white/10 bg-background-light dark:bg-background-dark p-6 flex-col hover:border-primary/30 transition-colors">
+              <div class="text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center"><span
+                  class="material-symbols-outlined !text-3xl">cancel</span></div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-lg font-bold leading-tight">The Problem</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">
+                  Your business is invisible to online searchers, you have an outdated website that doesn't work on
+                  mobile, and you're losing customers.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-white/10 bg-background-light dark:bg-background-dark p-6 flex-col hover:border-primary/30 transition-colors">
+              <div class="text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center"><span
+                  class="material-symbols-outlined !text-3xl">lightbulb</span></div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-lg font-bold leading-tight">Our Solution</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">
+                  We craft a unique, modern website that reflects your brand's quality and is designed to convert
+                  visitors into paying customers.
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-white/10 bg-background-light dark:bg-background-dark p-6 flex-col hover:border-primary/30 transition-colors">
+              <div class="text-primary bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center"><span
+                  class="material-symbols-outlined !text-3xl">check_circle</span></div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-lg font-bold leading-tight">What You Get</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">
+                  A fully custom & mobile-responsive design, basic on-page SEO, a secure contact form, and professional
+                  copywriting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Choose Us Section - NEW -->
+        <section class="py-12 sm:py-16 px-4 bg-background-light dark:bg-background-dark">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+              <h2
+                class="text-[#181410] dark:text-white text-3xl sm:text-4xl font-black leading-tight tracking-[-0.033em] mb-4">
+                Why Choose LocalGrowth?</h2>
+              <p class="text-[#181410]/80 dark:text-white/80 text-base max-w-2xl mx-auto">We're not just a web design
+                agency; we're your local growth partners.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                class="flex flex-col items-center text-center p-6 bg-white dark:bg-[#181410] rounded-xl border border-[#e7e0da] dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <span class="material-symbols-outlined text-3xl">location_on</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#181410] dark:text-white mb-2">Local Expertise</h3>
+                <p class="text-sm text-[#8d735e] dark:text-white/60">We understand the Indian market and what local
+                  customers are looking for.</p>
+              </div>
+              <div
+                class="flex flex-col items-center text-center p-6 bg-white dark:bg-[#181410] rounded-xl border border-[#e7e0da] dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <span class="material-symbols-outlined text-3xl">rocket_launch</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#181410] dark:text-white mb-2">Fast Delivery</h3>
+                <p class="text-sm text-[#8d735e] dark:text-white/60">Get your professional website up and running in as
+                  little as 2 weeks.</p>
+              </div>
+              <div
+                class="flex flex-col items-center text-center p-6 bg-white dark:bg-[#181410] rounded-xl border border-[#e7e0da] dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <span class="material-symbols-outlined text-3xl">savings</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#181410] dark:text-white mb-2">Affordable Pricing</h3>
+                <p class="text-sm text-[#8d735e] dark:text-white/60">Premium quality services at prices that fit your
+                  business budget.</p>
+              </div>
+              <div
+                class="flex flex-col items-center text-center p-6 bg-white dark:bg-[#181410] rounded-xl border border-[#e7e0da] dark:border-white/10 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  <span class="material-symbols-outlined text-3xl">support_agent</span>
+                </div>
+                <h3 class="text-lg font-bold text-[#181410] dark:text-white mb-2">Dedicated Support</h3>
+                <p class="text-sm text-[#8d735e] dark:text-white/60">We're here to help you even after your site goes
+                  live.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-12 sm:py-16 px-4">
+          <div class="flex flex-col gap-6 text-center max-w-[720px] mx-auto mb-12">
+            <h2 class="text-[#181410] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+              Our Services
+            </h2>
+            <p class="text-[#181410] dark:text-white/80 text-base font-normal leading-normal">
+              We help small and medium local businesses across India grow by providing custom website development, n8n
+              automations, Google Business Profile optimization, and SEO.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-[960px] mx-auto">
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-[#3a2c1e] bg-white dark:bg-background-dark p-8 flex-col text-center items-center hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm">
+              <div class="text-primary bg-primary/5 p-4 rounded-full mb-2">
+                <span class="material-symbols-outlined text-4xl">code</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-xl font-bold leading-tight">Custom Website Development
+                </h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">Create a professional,
+                  mobile-friendly website that attracts customers and drives sales.</p>
+              </div>
+            </div>
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-[#3a2c1e] bg-white dark:bg-background-dark p-8 flex-col text-center items-center hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm">
+              <div class="text-primary bg-primary/5 p-4 rounded-full mb-2">
+                <span class="material-symbols-outlined text-4xl">hub</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-xl font-bold leading-tight">n8n Automations</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">Save time and improve
+                  efficiency by automating your repetitive business tasks.</p>
+              </div>
+            </div>
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-[#3a2c1e] bg-white dark:bg-background-dark p-8 flex-col text-center items-center hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm">
+              <div class="text-primary bg-primary/5 p-4 rounded-full mb-2">
+                <span class="material-symbols-outlined text-4xl">storefront</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-xl font-bold leading-tight">Google Business Profile
+                  Optimization</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">Rank higher in local
+                  search results and attract more customers in your area.</p>
+              </div>
+            </div>
+            <div
+              class="flex flex-1 gap-4 rounded-xl border border-[#e7e0da] dark:border-[#3a2c1e] bg-white dark:bg-background-dark p-8 flex-col text-center items-center hover:border-primary/50 dark:hover:border-primary/50 transition-all hover:-translate-y-1 shadow-sm">
+              <div class="text-primary bg-primary/5 p-4 rounded-full mb-2">
+                <span class="material-symbols-outlined text-4xl">trending_up</span>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[#181410] dark:text-white text-xl font-bold leading-tight">Search Engine Optimization
+                  (SEO)</h3>
+                <p class="text-[#8d735e] dark:text-white/60 text-sm font-normal leading-normal">Get found by more
+                  customers on Google and increase your online visibility.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="py-12 sm:py-16 px-4 bg-white dark:bg-[#181410]">
+          <div class="max-w-[1100px] mx-auto">
+            <!-- Hero Banner -->
+            <div class="@container mb-12 rounded-2xl overflow-hidden shadow-lg">
+              <div class="@[480px]:p-0">
+                <div
+                  class="flex min-h-[400px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 items-center justify-center p-8"
+                  data-alt="Busy Indian market street with blurred lights in the background"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBT_oW-rMACw8zAXYXtCwd_OFMkLqFJN1Eni5syPjvTyZH4lN2oB9jq-Ro2bLWelBUgbEukjGnnPRhjMrX_TOl0iVvGzYEnwEx7obpSndtiA0AHN64F24JUmZ7nTEmuFiOwMrimELoCiBd-Kg171RPO_7-lY1BPxmUAGC8cpZhG3ILRlOrQdoRsgPA2shCETN63RHFLFUfYYc3IAO5epyz8LWNiAEa1ycN3HgToDQdf14pHennjTKz0qympyVfbi-UriKhQoboY2NA");'>
+                  <div class="flex flex-col gap-4 text-center max-w-2xl">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      Real Results for Local Indian Businesses
+                    </h1>
+                    <h2 class="text-white/90 text-base font-normal leading-relaxed">
+                      See how we help small and medium businesses across India grow with our proven strategies.
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between px-4 pb-6 pt-2">
+              <h2
+                class="text-[#1d140c] dark:text-background-light text-2xl font-bold leading-tight tracking-[-0.015em]">
+                Our Success Stories</h2>
+              <a href="#contact" class="text-primary font-bold text-sm hover:underline">Start Your Success Story →</a>
+            </div>
+
+            <!-- Case Study Cards -->
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 p-4">
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="A colorful display of Indian sweets at Gupta Sweets"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhqvdZ6Pvw0PKgcAGOPVpBSjfZa4g2oPOdiad675on-PAbjb2v8nEHfUCwLRSk_Bp5HBFIyTBZL13Om2CXyFVsqCcOo94xODcZzYAP1-8Xwqr7pp7HySA0VX4WJ70t14DcXXc158PiYwPUG-r41Uq0uM6omUG_S8jWgj5wFqdwugdJRcOHRsqWSVzr12XXx42ffQr__uMoGQGbtLWNivr9FBXvM-fC8MpLCdrpMdBcbAVXA10AYOVHqnVl2zYsl7yzd_ZbwDeepmQ");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Gupta Sweets,
+                    Delhi</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: +350%
+                    Footfall</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">SEO</span>
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">GBP
+                      Optimization</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="Interior of Sharma Electronics store in Jaipur"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBB0gZl8hNEMW-4XNCMefYoULXZdO2NgHhqFxZX7kv2INHqb2rGnFo-PgnQ5DIa0xGUaQxnken3kJyzEnj1jHQWV9NDPCKA3aMeY6j_sxfCbN9ER0Jx-G4EwenMcC9GK6sjZLb_gUf3PdOB-bLH0e4F5F7JWRTCtmYt7YBbowioiQeStXJ0-KvLJC8eebjzhohFkeLgLS8PdibI16NMAPs3s6aG8aieGXTd_3ocE5YNmAKlOhgRhAW9vKAh9MtFNN9If0GDihSDpTE");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Sharma
+                    Electronics, Jaipur</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: 4x
+                    Increase in Calls in 3 Months</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">GBP
+                      Optimization</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="A clean and modern medical clinic waiting room in Chennai"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtwqJMqTmopWOVPaIAG_CLkVwsSkk5kazoLXK7l4C3225bK0zTSdKSSf3nNkFIeE_lFTTSzOGVsDDxiCzVGHQuz6qN7V8fJLcUYvis4YyoQt9pQV98N_njhEOf8NEzN6Ilad_Tlzf6CDuA6-vZyMUGVwVFwLyR__SVaBJnZi8uc1Yq_x0wpKjH9xqx2WaiW0Qj-uHcmeyddjp7TMLZhj3blXGX_6P1k_w8Tbr9M1Xsq4qLu9xzJ-PQaBNtRN9Yiua1Bpk6ZOfUamk");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Chennai Medical
+                    Clinic, Chennai</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: 250%
+                    More Bookings</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">Website
+                      Dev</span>
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">SEO</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="Elegant lobby of a boutique hotel in Mumbai"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJUc1TNAzZ-aWPxpZTBfUL4RQ1YBOq7QkvyRp9sEQds2Ut43V1MK21-oTc07Y1RJeTweAMimSCXXLExtv8Rlhe_v9dSs1r-MWSQrm8s90ItsJ8ftr1UlLEUJ15QNhFjpQvVN89uQ8RibJTASTQIX5YpdGS3kIbSgMgkaoUEBJNIz5G-xGN0rvJ-qfYWfxiF5C-pL0giQJhQqz2NrnEdO5X6uQEdX_iIRYtPgsvgPuwIaZa_Na-4VTXZUG7Oy-5eWX1YjpqR6sJaTw");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Mumbai Boutique
+                    Hotel, Mumbai</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: +180%
+                    Direct Website Bookings</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">Website
+                      Dev</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="Beautifully crafted handicrafts in a Kolkata store"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmnnhD1q5037PhueQu3MsB5R9ThZhWQyT2L_h75sa4pSFYP5ErxshbsUH9C2GcWwlXDTcdlPQbTE5zOSvzTQEPhiy1fTq7oOI8RslFWJ64gR0cXH3yFR7iCH8vl_zrYyromukYr6gtKahI-mszURmsqtKDStpEJBNMHVSeHZfVO_jOBBbK0KxMxOLPWRUYzE1PrMbqHUGIOtz4Xcx_ftgEXbcvpvwb9ipytOhZbJEo5Qp8KhSoFbKmRFWtER_3cEVh8WNsY6SHstY");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Kolkata
+                    Handicrafts, Kolkata</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: 5x
+                    Growth in Online Sales</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">n8n
+                      Automations</span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-3 pb-3 bg-background-light dark:bg-background-dark rounded-xl overflow-hidden shadow-sm border border-[#f4ece6] dark:border-background-dark hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  data-alt="A mechanic working on a car at Pune Auto Repair"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC1IMQQpLqszyQtBiip3vqYOqHnMGhF76tUHZhzMD2ET1cQKHL-PgoWDawA1tbjxTBbP-6_NtkTIoMicyZSYs-ikfliPGsRreXu7lMwLT6Nd0yrg5CgKeMaOmtTc1O4FBqVx9K0z777xErig40ORVzZuSZ3qBo_Dh7k617GllcPgyYioFLOvk-mGUg_-2WRiZNccow3Mt6aYFm8VMBeZv2aweADQGqjQ4vV66RsXtJoVADNcmZLwWrLgkaCGFYMTM3DBivO9U7s6vo");'>
+                </div>
+                <div class="p-5 flex flex-col flex-grow">
+                  <p class="text-[#1d140c] dark:text-background-light text-lg font-bold leading-normal">Pune Auto
+                    Repair, Pune</p>
+                  <p class="text-[#a16e45] dark:text-white/70 text-sm font-normal leading-normal mb-3">Key Result: Top 3
+                    on Google for 'car repair'</p>
+                  <div class="flex gap-2 mb-4">
+                    <span
+                      class="text-xs font-semibold bg-primary/10 text-primary dark:text-white px-2 py-1 rounded-full border border-primary/20">SEO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 sm:py-16 px-4 bg-background-light dark:bg-background-dark">
+          <div class="mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+              <div class="flex flex-col gap-8">
+                <div class="flex min-w-72 flex-col gap-3">
+                  <p
+                    class="text-[#181410] dark:text-background-light text-4xl font-black leading-tight tracking-[-0.033em]">
+                    Let's Grow Your Business</p>
+                  <p class="text-[#8d735e] dark:text-background-light/70 text-base font-normal leading-normal">Fill out
+                    the form below or call us directly to discuss your business goals.</p>
+                </div>
+                <form class="flex flex-col gap-6">
+                  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">
+                        Business Name</p>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="Enter your business name" type="text" />
+                    </label>
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">Owner
+                        Name</p>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="Enter your name" type="text" />
+                    </label>
+                  </div>
+                  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">Phone
+                        Number</p>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="+91 12345 67890" type="tel" />
+                    </label>
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">Email
+                        Address</p>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="you@example.com" type="email" />
+                    </label>
+                  </div>
+                  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">City
+                      </p>
+                      <input
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="Enter your city" type="text" />
+                    </label>
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">
+                        Service Interested In</p>
+                      <select
+                        class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light h-12 placeholder:text-[#8d735e] px-[15px] py-0 text-base font-normal leading-normal">
+                        <option value="">Select a service</option>
+                        <option value="website">Website Development</option>
+                        <option value="automation">n8n Automations</option>
+                        <option value="gbp">Google Business Profile</option>
+                        <option value="seo">SEO</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="flex flex-col w-full">
+                      <p class="text-[#181410] dark:text-background-light text-sm font-medium leading-normal pb-2">Short
+                        Message</p>
+                      <textarea
+                        class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-[#181410] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7e0da] bg-white dark:bg-background-dark/50 dark:border-white/20 dark:text-background-light min-h-[120px] placeholder:text-[#8d735e] p-[15px] text-base font-normal leading-normal"
+                        placeholder="Tell us a bit about your project..."></textarea>
+                    </label>
+                  </div>
+                  <button type="submit"
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-[#181410] text-base font-bold leading-normal tracking-[0.015em] w-full hover:bg-primary/90 transition-colors">
+                    <span class="truncate">Send Message</span>
+                  </button>
+                </form>
+              </div>
+              <div class="flex flex-col gap-8 lg:pt-16">
+                <div class="flex flex-col gap-4">
+                  <a class="flex items-center gap-4 rounded-lg border border-[#e7e0da] dark:border-white/20 p-4 bg-white dark:bg-background-dark/50 hover:bg-white/50 dark:hover:bg-background-dark transition-colors"
+                    href="tel:+911234567890">
+                    <span class="material-symbols-outlined text-primary text-3xl">call</span>
+                    <div class="flex flex-col">
+                      <span class="font-bold text-[#181410] dark:text-background-light">Call Us Now</span>
+                      <span class="text-[#8d735e] dark:text-background-light/70 text-sm">+91 12345 67890</span>
+                    </div>
+                  </a>
+                  <a class="flex items-center gap-4 rounded-lg border border-[#e7e0da] dark:border-white/20 p-4 bg-white dark:bg-background-dark/50 hover:bg-white/50 dark:hover:bg-background-dark transition-colors"
+                    href="https://wa.me/911234567890" target="_blank">
+                    <span class="material-symbols-outlined text-primary text-3xl">sms</span>
+                    <div class="flex flex-col">
+                      <span class="font-bold text-[#181410] dark:text-background-light">WhatsApp Us</span>
+                      <span class="text-[#8d735e] dark:text-background-light/70 text-sm">Start a conversation</span>
+                    </div>
+                  </a>
+                </div>
+                <div
+                  class="flex flex-col gap-4 rounded-lg border border-[#e7e0da] dark:border-white/20 p-6 bg-white dark:bg-background-dark/50">
+                  <h3 class="text-xl font-bold text-center text-[#181410] dark:text-background-light">Schedule a
+                    15-Minute Discovery Call</h3>
+                  <p class="text-[#8d735e] dark:text-background-light/70 text-sm text-center">Pick a time that works for
+                    you. We'll call you to discuss how we can help your business grow.</p>
+                  <div
+                    class="w-full h-64 bg-background-light dark:bg-background-dark/30 rounded-lg flex items-center justify-center border-2 border-dashed border-[#e7e0da] dark:border-white/20">
+                    <span class="text-[#8d735e] dark:text-background-light/70">[Scheduling Widget Placeholder]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-solid border-t-[#f5f2f0] dark:border-t-[#3a2c1e] mt-10 py-8 px-4">
+          <div class="max-w-[960px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+              <h3 class="text-[#181410] dark:text-white text-lg font-bold">LocalGrowth Agency</h3>
+              <p class="text-[#8d735e] dark:text-white/60 text-sm">Helping local businesses thrive online.</p>
+            </div>
+            <div class="flex gap-6 text-sm text-[#181410] dark:text-white/80 font-medium">
+              <a class="hover:text-primary transition-colors" href="#home">Home</a>
+              <a class="hover:text-primary transition-colors" href="#services">Services</a>
+              <a class="hover:text-primary transition-colors" href="#case-studies">Case Studies</a>
+              <a class="hover:text-primary transition-colors" href="#contact">Contact</a>
+            </div>
+            <div class="text-center md:text-right">
+              <p class="text-[#8d735e] dark:text-white/60 text-sm">© 2024 LocalGrowth Agency. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Smooth Scroll Enhancement Script -->
+  <script>
+    // Enhanced smooth scroll with offset for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.getElementById('navbar').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight - 20;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active navigation highlighting on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-primary', 'font-bold');
+        link.classList.add('text-[#181410]', 'dark:text-white/80');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('text-primary', 'font-bold');
+          link.classList.remove('text-[#181410]', 'dark:text-white/80');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
