@@ -5,5 +5,5 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.zeptomail.in https://lh3.googleusercontent.com https://images.unsplash.com https://script.google.com https://res.cloudinary.com; frame-ancestors 'none';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.zeptomail.in https://lh3.googleusercontent.com https://images.unsplash.com https://script.google.com https://script.googleusercontent.com https://res.cloudinary.com; frame-ancestors 'none';
   Cache-Control: public, max-age=900
