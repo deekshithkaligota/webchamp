@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import DotGrid from './DotGrid';
 
-const Hero = () => {
+const Hero = ({ navigateTo }) => {
     return (
         <header
             id="home"
@@ -146,7 +146,7 @@ const Hero = () => {
                     <button onClick={() => window.location.href = '#contact'} className="bg-primary text-black font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                         Get Your Free Strategy Call <ArrowRight className="w-5 h-5" />
                     </button>
-                    <button onClick={() => window.location.href = '#case-studies'} className="bg-white text-[#181410] font-bold px-8 py-4 rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
+                    <button onClick={() => navigateTo('works')} className="bg-white text-[#181410] font-bold px-8 py-4 rounded-full border border-gray-200 hover:bg-gray-50 transition-colors">
                         View Our Work
                     </button>
                 </motion.div>

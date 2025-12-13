@@ -39,7 +39,7 @@ function App() {
             <main>
                 {currentView === 'home' ? (
                     <>
-                        <Hero />
+                        <Hero navigateTo={navigateTo} />
                         <Stats />
                         <WhyChooseUs />
                         <Services />
