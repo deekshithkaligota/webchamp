@@ -1,0 +1,32 @@
+# Webchamp.services
+
+> Professional web development, SEO optimization, and digital marketing agency helping businesses grow online.
+
+## About
+
+Webchamp.services is a web development and digital marketing agency based in India. We specialize in creating high-performance websites that drive growth, attract customers, and deliver measurable results.
+
+## Services
+
+- Custom Website Development
+- SEO Optimization
+- Google Business Profile Management
+- Digital Marketing Solutions
+- E-commerce Development
+- Performance Optimization
+
+## Contact
+
+- Email: weare@webchamp.services
+- Phone: +91-7799631973
+- Website: https://webchamp.services
+
+## Allowed
+
+- /
+- /sitemap.xml
+
+## Disallowed
+
+- /api/
+- /functions/
