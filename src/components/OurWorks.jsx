@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Loader2 } from 'lucide-react';
 
+// Google Apps Script URL for fetching projects
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6c4Jgqqb_ezOD5L9JqJrxbLOdeh4DbnWJgGAih3DW5OzRR3Rpr6iFclG7I1yRtrAg/exec';
 
 const OurWorks = ({ navigateTo }) => {
@@ -14,10 +15,25 @@ const OurWorks = ({ navigateTo }) => {
         const fetchProjects = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(GOOGLE_SCRIPT_URL);
-                const data = await response.json();
-                setProjects(data);
                 setError(null);
+
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Ensure data is an array
+                const projectsArray = Array.isArray(data) ? data : [data];
+                setProjects(projectsArray);
             } catch (err) {
                 console.error('Error fetching projects:', err);
                 setError('Failed to load projects. Please try again later.');
