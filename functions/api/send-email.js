@@ -1,4 +1,4 @@
-// Cloudflare Pages Function for Zepto Mail Integration
+// Cloudflare Pages Function for Resend Email Integration
 export async function onRequestPost(context) {
     const { request, env } = context;
 
@@ -21,11 +21,11 @@ export async function onRequestPost(context) {
             );
         }
 
-        // Get Zepto Mail API key from environment
-        const ZEPTO_API_KEY = env.ZEPTO_API_KEY;
+        // Get Resend API key from environment
+        const RESEND_API_KEY = env.RESEND_API_KEY;
 
-        if (!ZEPTO_API_KEY) {
-            console.error('ZEPTO_API_KEY environment variable is not set');
+        if (!RESEND_API_KEY) {
+            console.error('RESEND_API_KEY environment variable is not set');
             return new Response(
                 JSON.stringify({ error: 'Email service not configured' }),
                 { status: 500, headers: corsHeaders }
@@ -85,58 +85,26 @@ export async function onRequestPost(context) {
 </html>
         `.trim();
 
-        // Plain text version
-        const textContent = `
-New Lead from Website
-
-Name: ${name}
-Phone: ${phone}
-Business Name: ${businessName}
-Service Interested In: ${service}
-
-Message:
-${message}
-
----
-This email was sent from the Webchamp contact form.
-        `.trim();
-
-        // Send email using Zepto Mail API
-        const response = await fetch('https://api.zeptomail.in/v1.1/email', {
+        // Send email using Resend API
+        const response = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
-                'Authorization': `Zoho-enczapikey ${ZEPTO_API_KEY}`,
+                'Authorization': `Bearer ${RESEND_API_KEY}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                from: {
-                    address: 'info@webchamp.services',
-                    name: 'Webchamp Website'
-                },
-                to: [
-                    {
-                        email_address: {
-                            address: 'weare@webchamp.services',
-                            name: 'Webchamp Team'
-                        }
-                    }
-                ],
+                from: 'Webchamp Website <info@webchamp.services>',
+                to: ['weare@webchamp.services'],
                 subject: `New Lead: ${name} - ${service}`,
-                htmlbody: htmlContent,
-                textbody: textContent,
-                reply_to: [
-                    {
-                        address: 'info@webchamp.services',
-                        name: 'Webchamp'
-                    }
-                ]
+                html: htmlContent,
+                reply_to: 'info@webchamp.services'
             })
         });
 
         const result = await response.json();
 
         if (!response.ok) {
-            console.error('Zepto Mail API error:', result);
+            console.error('Resend API error:', result);
             return new Response(
                 JSON.stringify({
                     error: 'Failed to send email',
@@ -150,7 +118,7 @@ This email was sent from the Webchamp contact form.
             JSON.stringify({
                 success: true,
                 message: 'Email sent successfully',
-                requestId: result.request_id
+                emailId: result.id
             }),
             { status: 200, headers: corsHeaders }
         );
